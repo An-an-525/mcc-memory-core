@@ -142,3 +142,39 @@ export {
   PostgresOperationError,
   PostgresDegradedError,
 } from './types.js';
+
+// ---- ACP 通信模块导出 ----
+
+// ACP 类型
+export type {
+  ACPMessage,
+  ACPRequest,
+  ACPResponse,
+  ACPEvent,
+  AgentInfo,
+  MessageType,
+  RequestType,
+  EventType,
+  ResponseStatus,
+  AgentStatus,
+  SessionStatus,
+  ACPClientConfig,
+  ACPServerConfig,
+  TextMessageRequest,
+  TextMessageResponse,
+  EventNotificationRequest,
+  EventNotificationResponse,
+  AgentDiscoveryResponse,
+  AgentInfoResponse,
+} from '../../communication/acp/types.js';
+
+// ACP 客户端
+export {
+  ACPClient,
+  createACPClient,
+} from '../../communication/acp/acpClient.js';
+
+// ACP 错误
+export {
+  ACPError,
+} from '../../communication/acp/types.js';

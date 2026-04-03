@@ -1,25 +1,18 @@
 import { Hono } from 'hono';
 import { serve } from '@hono/node-server';
 import { ActiveMemory } from '../../core/src/memory/active/index.js';
+import { createACPServer } from './acp.js';
 
 const app = new Hono();
 
 // 初始化 ActiveMemory
 const memory = new ActiveMemory<string>();
 
-// 初始化 ActiveMemory
-memory.initialize({
-  maxMemorySize: 1000,
-  defaultTtlMs: 3600000, // 1 hour
-  enableDegradation: true,
-  writeStrategy: 'all',
-  readStrategy: 'hierarchical',
-  vectorSearchThreshold: 0.7,
-}).then(() => {
-  console.log('ActiveMemory initialized successfully');
-}).catch((error) => {
-  console.error('Failed to initialize ActiveMemory:', error);
-});
+// 初始化 ACP 服务器
+const acpServer = createACPServer();
+
+// 集成 ACP 路由
+app.route('/', acpServer.getApp());
 
 app.get('/', (c) => {
   return c.text('MCC Server is running!');
@@ -85,6 +78,20 @@ app.get('/memory/size', async (c) => {
   } catch (error) {
     return c.json({ error: (error as Error).message }, 500);
   }
+});
+
+// 初始化 ActiveMemory
+memory.initialize({
+  maxMemorySize: 1000,
+  defaultTtlMs: 3600000, // 1 hour
+  enableDegradation: true,
+  writeStrategy: 'all',
+  readStrategy: 'hierarchical',
+  vectorSearchThreshold: 0.7,
+}).then(() => {
+  console.log('ActiveMemory initialized successfully');
+}).catch((error) => {
+  console.error('Failed to initialize ActiveMemory:', error);
 });
 
 const port = 44448;
