@@ -1,0 +1,82 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Build files
+*.tsbuildinfo
+
+# Package manager files
+.npm
+.yarn-integrity
+
+# OS generated files
+Thumbs.db
+
+# Trae specific
+.trae/
+
+# Other directories to ignore
+$RECYCLE.BIN/
+.GamingRoot
+.pnpm-store/
+360Downloads/
+360MoveData/
+360RecycleBin/
+BaiduSyncdisk/
+Cherry Studio/
+CloudMusic/
+CodeBuddy CN/
+DockerWSL/
+Kimi/
+MapData/
+Obsidian/
+OpenCode/
+Program Files (x86)/
+Program Files/
+QMDownload/
+QianwenApp/
+Temp/
+WXWork/
+Yuanbao/
+accio/
+an-clan/
+autoclaw/
+claude-code-haha/
+clawx/
+cursor/
+dify/
+ima.copilot/
+jetbrains-crack-toolbox_2.3.0_win.zip
+openclaw/
+paperclip/
+qclaw/
+tmp/
+zongmen-gui/
